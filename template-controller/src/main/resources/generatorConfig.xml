@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="mysqlgenerator" targetRuntime="MyBatis3">
+        <commentGenerator type="org.mybatis.generator.internal.DG2CommentGenerator">
+            <property name="javaFileEncoding" value="UTF-8"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <!--建议一定要保留suppressAllComments属性(使用默认值false)，
+            一定要取消(设为true)时间戳suppressDate，避免重复提交SVN。-->
+            <property name="suppressAllComments" value="false"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!-- 配置数据库连接信息 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/pdfesign?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=UTC&amp;useSSL=false"
+                        userId="root"
+                        password="root"/>
+
+        <!-- 格式化java代码 -->
+        <!-- 指定javaBean生成的位置 -->
+        <javaModelGenerator targetPackage="com.zjca.bean"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 指定sql映射文件生成的位置 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 指定dao接口（mapper接口）生成的位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.zjca.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- table指定每个表的生成策略（哪个表对应哪个javaBean类） -->
+
+        <!--<table tableName="article_type"/>
+            <table tableName="article"/>
+            <table tableName="product"/>
+             <columnOverride column="remark" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <columnOverride column="cert" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <columnOverride column="dn" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <columnOverride column="enc_cert" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <columnOverride column="enc_keypair" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <columnOverride column="enc_keypair" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <table tableName="article_category"/>-->
+        <!--<table tableName="lk_lock_account" domainObjectName="LkLockAccount"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>-->
+        <!--  <table tableName="tb_cs_cert" domainObjectName="TBCert"
+                enableCountByExample="false" enableUpdateByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false"
+                selectByExampleQueryId="false">
+             <columnOverride column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+             <columnOverride column="cert" javaType="java.lang.String" jdbcType="VARCHAR" />
+             <columnOverride column="dn" javaType="java.lang.String" jdbcType="VARCHAR" />
+             <columnOverride column="enc_cert" javaType="java.lang.String" jdbcType="VARCHAR" />
+             <columnOverride column="enc_keypair" javaType="java.lang.String" jdbcType="VARCHAR" />
+             <columnOverride column="enc_keypair" javaType="java.lang.String" jdbcType="VARCHAR" />
+         </table>-->
+        <table tableName="tb_esign" domainObjectName="TbESign"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+    </context>
+
+</generatorConfiguration>
